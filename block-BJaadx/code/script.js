@@ -4,9 +4,12 @@ document.title="Hello Altcampus!"
 
 //    - Select the `h1` element and change the value to `Learning DOM`
 ==document.querySelector('#test')
+document.body.children[0].innerText="Learning DOM"
 //    - Select the first `li` element inside the `ul` with class `topics` and change the innerText to `all about document`
 let li=document.querySelector('ul>li')
 li.innerText=`all about document`
+
+document.body.children[5].children[0].innerText="all about document"
 //    - Select the input element with name `email`
 ==document.querySelector('#email')
 
@@ -37,9 +40,11 @@ let listOfSelectedTopics=document.querySelectorAll('.list')
 // 14. Select the first li element inside the `ul` element using `>` (direct child) and store in `firstLi`
 let firstli=document.querySelector('ul>li')
 // 15. Select all the img element and log the number of element saying `The total number of img element is ---`
-==document.querySelector('img',console.log(`The total number of img element is ---`))
+let allImg=document.querySelector('img');
+console.log(`The total number of img element is ${allImg.length}`);
+
 // 16. Select all the `p` element and store in `allPElement`
-==document.querySelectorAll('p')
+document.querySelectorAll('p')
 // 17. Select all the buttons and log the count of buttons.
 ==document.querySelectorAll('buttons')
 // 18. Select all the `label` element and log the count.
