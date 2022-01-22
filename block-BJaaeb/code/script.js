@@ -6,11 +6,13 @@ default value to be "text" and return the input element inside label. (create it
 */
 
 // Your code goes here
-function createInputElm(label , type = "text") {
+function createInputElm(labelmsg , type = "text") {
   let label = document.createElement('label')
  let input = document.createElement('input');
-    
-  return label.append(input);  
+    input.type=type;
+    label.innerText=labelmsg;
+    label.append(input)
+  return label;  
  
  }
 
@@ -21,12 +23,9 @@ createInputElm('Your age', 'number'); //<label>Your age: <input type="number"></
 // 2. Do the same thing as above using string literal like `<h1>Hello</h1>`
 
 // Your code goes here
-function createInputElm(label , type = "text") {
-  let label = document.createElement('label')
- let input = document.createElement('input');
-   
-  return `${label.append(input)}`;  
- 
+function createInputElm(labelMsg , type = "text") {
+let html=`<label>${labelMsg} <input type="${type}"></label>`
+ return html;
  }
 
 // TEST
@@ -46,6 +45,15 @@ function createList(arr){
       ul.append(li)
     });
     return ul;
+  }
+
+
+  function createList(data=[]){
+    let html= `<ul>
+     ${data.map((elm) => `<li>${elm}</li`).join("")}
+     </ul>`;
+
+     return html
   }
 
 // TEST
@@ -82,6 +90,23 @@ function createTodoList(arr) {
   })
 return ul;
  
+}
+
+
+function createList(data=[]){
+  let html= `<ul>
+  ${data .map((todo) =>`
+  <li>
+    <p>${todo.name}</p>
+    <input type="checkbox" ${todo.isDone ? "checked" : ""} name="" id="">
+    <span>X</span>
+  </li>`
+  )
+   
+   .join("")}
+   </ul>`;
+
+   return html
 }
 
 // TEST
